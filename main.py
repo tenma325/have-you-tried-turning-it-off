@@ -12,6 +12,8 @@ LINE = 'Have you tried turning it off and accepting that some things, like this 
 
 
 def main() -> None:
+    if not 1 <= len(LINE) <= 199:
+        raise ValueError(f"entry must be 1-199 characters, got {len(LINE)}")
     target = os.environ.get("ENTRY_OUTPUT_PATH", "/output/entry.txt")
     path = Path(target)
     try:
